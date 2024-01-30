@@ -11,6 +11,7 @@ private:
 public:
 	String specific_Tag = "transform";
 	TransformComponent(shared_ptr<GameObject> gameObject);
+	void start();
 	void update(float dtAsSecond);
 	void draw(RenderWindow& window)
 	{

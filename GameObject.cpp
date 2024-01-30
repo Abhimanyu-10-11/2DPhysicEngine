@@ -9,6 +9,16 @@ GameObject::GameObject(string name)
 	this->name = name +"::"+std::to_string(objectId);
 }
 
+void GameObject::start()
+{
+	auto start = components.begin();
+	auto end = components.end();
+	for (start; start != end; start++)
+	{
+		(*start)->start();
+	}
+}
+
 void GameObject::update(float dtAsSecond)
 {
 	auto start = components.begin();

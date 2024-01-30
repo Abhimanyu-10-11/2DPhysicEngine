@@ -6,6 +6,11 @@ TransformComponent::TransformComponent(shared_ptr< GameObject> gameObject)
 	this->gameObject = gameObject;
 }
 
+void TransformComponent::start()
+{
+	//START
+}
+
 void TransformComponent::update(float dtAsSecond)
 {
 	if (Keyboard::isKeyPressed(Keyboard::A))

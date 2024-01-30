@@ -14,9 +14,13 @@ PhysicEngine::PhysicEngine()
 
 void PhysicEngine::run()
 {
-	
+	//GameObject Start calling
+	for (shared_ptr<GameObject> gameObject :
+		gOAndC->getAllGameObjectList())
+	{
+		gameObject->start();
+	}
 
-	Time dt;
 	Event event;
 	while (window.isOpen())
 	{
@@ -38,8 +42,6 @@ void PhysicEngine::run()
 		update(dt.asSeconds());
 		draw();
 		
-		
-
 	}
 }
 

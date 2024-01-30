@@ -5,13 +5,17 @@ RigidbodyComponent::RigidbodyComponent(shared_ptr<GameObject> gameObject)
 	this->gameObject = gameObject;
 }
 
-void RigidbodyComponent::update(float dtAsSecond)
+void RigidbodyComponent::start()
 {
 	if (gameObjectTransformComponent == NULL)
 		gameObjectTransformComponent =
 		static_pointer_cast<TransformComponent>
 		(gameObject->findComponentWithSpecificTag("transform"));
 
+}
+
+void RigidbodyComponent::update(float dtAsSecond)
+{
 	if (gameObjectTransformComponent != NULL)
 	{
 

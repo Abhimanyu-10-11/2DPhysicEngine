@@ -16,8 +16,11 @@ private:
 	String specific_Tag = "graphic";
 public:
 	SimpleGraphicComponent(shared_ptr<GameObject> gameObject);
+	void start();
 	void update(float);
 	void draw(RenderWindow& window);
 	String& getSpecific_Tag();
+	//Give filename only no need of extension //"graphic/------"
+	void assignSprite(string name);
 };
 

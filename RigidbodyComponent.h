@@ -14,6 +14,7 @@ private:
 	String specific_Tag = "rigidbody";
 public:
 	RigidbodyComponent(shared_ptr<GameObject> gameObject);
+	void start();
 	void update(float dtAsSecond);
 	void draw(RenderWindow& window){}
 	String& getSpecific_Tag();

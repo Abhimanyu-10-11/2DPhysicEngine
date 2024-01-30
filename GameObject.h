@@ -16,6 +16,7 @@ public:
 	static int totalNumberOfGameObjectEverCreated;
 	string tag = "GameObject";
 	GameObject(string name);
+	void start();
 	void update(float dtAsSecond);
 	void draw(RenderWindow& window);
 	void addComponent(shared_ptr<Component>  component);

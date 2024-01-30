@@ -1,6 +1,7 @@
 #include"SimpleGraphicComponent.h"
 #include<iostream>
 
+
 SimpleGraphicComponent::SimpleGraphicComponent(shared_ptr<GameObject> gameObject)
 {
 	String tex = "graphics/player.png";
@@ -8,16 +9,22 @@ SimpleGraphicComponent::SimpleGraphicComponent(shared_ptr<GameObject> gameObject
 	{
 		std::cout << "Unable to load Texture";
 	}
+	sprite.setTexture(texture);
 
 	this->gameObject = gameObject;	
 }
 
-void SimpleGraphicComponent::update(float)
+void SimpleGraphicComponent::start()
 {
-	if(gameObjectTransformComponent == NULL)
+	if (gameObjectTransformComponent == NULL)
 		gameObjectTransformComponent =
 		static_pointer_cast<TransformComponent>
 		(gameObject->findComponentWithSpecificTag("transform"));
+}
+
+void SimpleGraphicComponent::update(float)
+{
+	
 
 	sprite.setTexture(texture);
 	if (gameObjectTransformComponent != NULL)
@@ -39,3 +46,15 @@ String& SimpleGraphicComponent::getSpecific_Tag()
 {
 	return specific_Tag;
 }
+
+void SimpleGraphicComponent::assignSprite(string name)
+{
+	String tex = "graphics/"+name;
+	if (!texture.loadFromFile(tex))
+	{
+		std::cout << "Unable to load Texture";
+	}
+	sprite.setTexture(texture);
+}
+
+
