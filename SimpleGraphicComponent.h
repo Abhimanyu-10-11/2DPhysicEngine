@@ -9,6 +9,9 @@ private:
 	shared_ptr<GameObject> gameObject;
 	Texture texture;
 	Sprite sprite;
+	float xSpritePos;
+	float ySpritePos;
+	float spriteRotation;
 	shared_ptr<TransformComponent> gameObjectTransformComponent;
 	string componentName = "Simple"+specific_Tag;
 	unsigned int xTextrueSize = 0;

@@ -31,6 +31,9 @@ public:
 	void setXScale(float xPos);
 	float getYScale();
 	void setYScale(float yPos);
+	//rotation
+	void setRotation(float rotation);
+	float& getRotation();
 
 	
 

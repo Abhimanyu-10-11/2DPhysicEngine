@@ -25,6 +25,7 @@ void SimpleGraphicComponent::awake()
 
 void SimpleGraphicComponent::start()
 {
+	
 
 	float x = gameObjectTransformComponent->getXScale();
 	float y = gameObjectTransformComponent->getXScale();
@@ -38,13 +39,13 @@ void SimpleGraphicComponent::update(float)
 	
 	if (gameObjectTransformComponent != NULL)
 	{
-		float x = gameObjectTransformComponent
+		xSpritePos = gameObjectTransformComponent
 			->getXPosition();
-		float y = gameObjectTransformComponent
+		ySpritePos = gameObjectTransformComponent
 			->getYPosition();
-		sprite.setPosition(x, y);
-		
-		
+		spriteRotation = gameObjectTransformComponent->getRotation();
+		sprite.setRotation(spriteRotation);
+		sprite.setPosition(xSpritePos, ySpritePos);
 	}
 }
 
@@ -60,9 +61,10 @@ void SimpleGraphicComponent::assignSprite(string name)
 	{
 		std::cout << "Unable to load Texture";
 	}
-	sprite.setTexture(texture);
 	xTextrueSize = texture.getSize().x;
 	yTextureSize = texture.getSize().y;
+	sprite.setOrigin(xTextrueSize / 2, yTextureSize / 2);
+	sprite.setTexture(texture);
 
 
 }

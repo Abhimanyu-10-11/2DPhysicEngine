@@ -30,9 +30,14 @@ void RectColliderComponent::start()
 void RectColliderComponent::SettingColliderVisual()
 {
 	int colliderBoundry = 5;
+	unsigned int xTextureSize = 
+		gameObjectGraphicComponent->getXTextureSize()+colliderBoundry;
+	unsigned int yTextrueSize =
+		gameObjectGraphicComponent->getYTextureSize()+colliderBoundry;
 	rect.setSize(Vector2f(
-		gameObjectGraphicComponent->getXTextureSize() + colliderBoundry,
-		gameObjectGraphicComponent->getYTextureSize() + colliderBoundry));
+		xTextureSize,
+		yTextrueSize));
+	rect.setOrigin(xTextureSize/2, yTextrueSize/2);
 	rect.setScale(Vector2f(gameObjecctTransform->getXScale(),
 		gameObjecctTransform->getYScale()));
 	rect.setFillColor(Color::Green);

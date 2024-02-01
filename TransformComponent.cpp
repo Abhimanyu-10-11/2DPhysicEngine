@@ -3,6 +3,7 @@
 
 TransformComponent::TransformComponent(shared_ptr< GameObject> gameObject)
 {
+
 	this->gameObject = gameObject;
 }
 
@@ -67,6 +68,16 @@ float TransformComponent::getYScale()
 void TransformComponent::setYScale(float ySize)
 {
 	this->yScale = ySize;
+}
+
+void TransformComponent::setRotation(float rotation)
+{
+	this->rotation = rotation;
+}
+
+float& TransformComponent::getRotation()
+{
+	return rotation;
 }
 
 
