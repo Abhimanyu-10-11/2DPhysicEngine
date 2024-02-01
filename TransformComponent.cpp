@@ -19,6 +19,11 @@ void TransformComponent::update(float dtAsSecond)
 {
 }
 
+shared_ptr<GameObject> TransformComponent::getThisComponentGameObject()
+{
+	return gameObject;
+}
+
 string& TransformComponent::getSpecific_Tag()
 {
 	return specific_Tag;

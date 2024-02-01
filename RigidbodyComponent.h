@@ -32,6 +32,7 @@ public:
 	void awake();
 	void start();
 	void update(float dtAsSecond);
+	shared_ptr<GameObject> getThisComponentGameObject();
 	string& getSpecific_Tag();
 	void setHasGravity(bool hasGravity);
 	bool getHasGravity();

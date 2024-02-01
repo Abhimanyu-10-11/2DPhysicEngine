@@ -5,6 +5,7 @@ using namespace sf;
 using namespace std;
 
 
+class GameObject;
 class Component
 {
 	string tag = "component";
@@ -13,7 +14,7 @@ public:
 	virtual void start() = 0;
 	virtual void update(float) = 0;
 	virtual void draw(RenderWindow&) {}
-	//virtual shared_ptr<GameObject> getThisComponentGameObject() = 0;
+	virtual shared_ptr<GameObject> getThisComponentGameObject() = 0;
 	virtual string& getSpecific_Tag() = 0;
 };
 

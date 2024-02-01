@@ -70,6 +70,11 @@ void PlayerInputController::update(float dtAsSecond)
 
 }
 
+shared_ptr<GameObject> PlayerInputController::getThisComponentGameObject()
+{
+	return gameObject;
+}
+
 string& PlayerInputController::getSpecific_Tag()
 {
 	return specific_Tag;

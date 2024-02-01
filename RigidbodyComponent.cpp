@@ -95,6 +95,11 @@ float RigidbodyComponent::getGravity()
 	return gravity;
 }
 
+shared_ptr<GameObject> RigidbodyComponent::getThisComponentGameObject()
+{
+	return gameObject;
+}
+
 CollisionOut& RigidbodyComponent::getCollisionOut()
 {
 	return collisionOut;
