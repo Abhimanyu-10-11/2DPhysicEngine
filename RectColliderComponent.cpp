@@ -7,16 +7,22 @@ RectColliderComponent::RectColliderComponent(shared_ptr<GameObject> gameObject)
 }
 void RectColliderComponent::awake()
 {
-	if (transform == NULL)
-		transform =
+	if (gameObjecctTransform == NULL)
+		gameObjecctTransform =
 		static_pointer_cast<TransformComponent>
 		(gameObject->findComponentWithSpecificTag("TransformComponent"));
+	else
+		std::cout << "unable to load TransfomComponent in RectColliderComponent.cpp";
+
+	if (gameObjectGraphicComponent == NULL)
+		gameObjectGraphicComponent = static_pointer_cast<GraphicComponent>(gameObject->findComponentWithSpecificTag("GraphicComponent"));
+	else 
+		std::cout << "unable to load GraphicComponent in RectColliderComponent.cpp";
 
 }
 
 void RectColliderComponent::start()
 {
-
 		SettingColliderVisual();
 
 }
@@ -25,13 +31,13 @@ void RectColliderComponent::SettingColliderVisual()
 {
 	int colliderBoundry = 5;
 	rect.setSize(Vector2f(
-		transform->getXTextureSize() + colliderBoundry,
-		transform->getYTextureSize() + colliderBoundry));
-	rect.setScale(Vector2f(transform->getXScale(),
-		transform->getYScale()));
+		gameObjectGraphicComponent->getXTextureSize() + colliderBoundry,
+		gameObjectGraphicComponent->getYTextureSize() + colliderBoundry));
+	rect.setScale(Vector2f(gameObjecctTransform->getXScale(),
+		gameObjecctTransform->getYScale()));
 	rect.setFillColor(Color::Green);
-	rect.setPosition(transform->getXPosition(),
-		transform->getYPosition());
+	rect.setPosition(gameObjecctTransform->getXPosition(),
+		gameObjecctTransform->getYPosition());
 	
 	
 	//rectInvisiable
@@ -54,10 +60,10 @@ void RectColliderComponent::update(float dtAsSecond)
 	if (!makeColliderVisualVisable)
 		return;
 
-	if (transform != NULL)
+	if (gameObjecctTransform != NULL)
 	{
-		rect.setPosition(transform->getXPosition(), 
-			transform->getYPosition());
+		rect.setPosition(gameObjecctTransform->getXPosition(), 
+			gameObjecctTransform->getYPosition());
 		/*rectInvisiable.setPosition(transform->getXPosition(),
 			transform->getYPosition());*/
 

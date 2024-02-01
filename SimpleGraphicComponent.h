@@ -10,15 +10,21 @@ private:
 	Texture texture;
 	Sprite sprite;
 	shared_ptr<TransformComponent> gameObjectTransformComponent;
-	string specific_Tag = "SimpleGraphicComponent";
+	string componentName = "Simple"+specific_Tag;
+	unsigned int xTextrueSize = 0;
+	unsigned int yTextureSize = 0;
 public:
-	SimpleGraphicComponent(shared_ptr<GameObject> gameObject);
+	SimpleGraphicComponent(
+		shared_ptr<GameObject> gameObject);
 	void awake();
 	void start();
 	void update(float);
 	void draw(RenderWindow& window);
-	string& getSpecific_Tag();
+	shared_ptr<GameObject> getThisComponentGameObject();
 	//Give filename only no need of extension //"graphic/------"
 	void assignSprite(string name);
+	//textrue Size
+	unsigned int getXTextureSize();
+	unsigned int getYTextureSize();
 };
 

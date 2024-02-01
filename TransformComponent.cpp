@@ -64,25 +64,6 @@ void TransformComponent::setYScale(float ySize)
 	this->yScale = ySize;
 }
 
-unsigned int TransformComponent::getXTextureSize()
-{
-	return xTextrueSize;
-}
-
-void TransformComponent::setXTextureSize(float xTextureSize)
-{
-	this->xTextrueSize = xTextureSize;
-}
-
-unsigned int TransformComponent::getYTextureSize()
-{
-	return yTextureSize;
-}
-
-void TransformComponent::setYTextureSize(float yTextureSize)
-{
-	this->yTextureSize = yTextureSize;
-}
 
 
 

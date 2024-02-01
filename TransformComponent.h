@@ -9,11 +9,10 @@ private:
 	const float XSCALE = 1;
 	const float YSCALE = 1;
 	float xPos = 0;
-	float yPos = 0; 
+	float yPos = 0;
+	float rotation = 0;
 	float xScale = XSCALE;
 	float yScale = YSCALE;
-	unsigned int xTextrueSize = 0;
-	unsigned int yTextureSize = 0;
 public:
 	string specific_Tag = "TransformComponent";
 	TransformComponent(shared_ptr<GameObject> gameObject);
@@ -31,11 +30,7 @@ public:
 	void setXScale(float xPos);
 	float getYScale();
 	void setYScale(float yPos);
-	//textrue Size
-	unsigned int getXTextureSize();
-	void setXTextureSize(float xTextureSize);
-	unsigned int getYTextureSize();
-	void setYTextureSize(float yTextureSize);
+
 	
 
 

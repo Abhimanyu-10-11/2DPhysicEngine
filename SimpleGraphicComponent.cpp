@@ -4,10 +4,7 @@
 
 SimpleGraphicComponent::SimpleGraphicComponent(shared_ptr<GameObject> gameObject)
 {
-
 	this->gameObject = gameObject;	
-
-	
 }
 
 void SimpleGraphicComponent::awake()
@@ -19,10 +16,12 @@ void SimpleGraphicComponent::awake()
 	else
 		std::cout << "SimpleGraphicComponent loading transfom component failed";
 
-	gameObjectTransformComponent->setXTextureSize(texture.getSize().x);
-	gameObjectTransformComponent->setYTextureSize(texture.getSize().y);
+
+	//gameObjectTransformComponent->setXTextureSize(texture.getSize().x);
+	//gameObjectTransformComponent->setYTextureSize(texture.getSize().y);
 
 }
+
 
 void SimpleGraphicComponent::start()
 {
@@ -33,8 +32,6 @@ void SimpleGraphicComponent::start()
 	sprite.setScale(x, y);
 
 }
-
-
 
 void SimpleGraphicComponent::update(float)
 {
@@ -56,11 +53,6 @@ void SimpleGraphicComponent::draw(RenderWindow& window)
 	window.draw(sprite);
 }
 
-string& SimpleGraphicComponent::getSpecific_Tag()
-{
-	return specific_Tag;
-}
-
 void SimpleGraphicComponent::assignSprite(string name)
 {
 	String tex = "graphics/"+name;
@@ -69,8 +61,25 @@ void SimpleGraphicComponent::assignSprite(string name)
 		std::cout << "Unable to load Texture";
 	}
 	sprite.setTexture(texture);
+	xTextrueSize = texture.getSize().x;
+	yTextureSize = texture.getSize().y;
 
 
+}
+
+shared_ptr<GameObject> SimpleGraphicComponent::getThisComponentGameObject()
+{
+	return gameObject;
+}
+
+unsigned int SimpleGraphicComponent::getXTextureSize()
+{
+	return xTextrueSize;
+}
+
+unsigned int SimpleGraphicComponent::getYTextureSize()
+{
+	return yTextureSize;
 }
 
 

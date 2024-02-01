@@ -31,11 +31,29 @@
     <Filter Include="Header Files\GameObject">
       <UniqueIdentifier>{f91499c9-8538-4096-9e2c-ce7fcd1f64aa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Components\Scripts">
+      <UniqueIdentifier>{ce892aff-36ba-4bc3-96e7-31f3796f518e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\EngineComponents">
+      <UniqueIdentifier>{6f284292-7d60-428d-8a4a-6ece1d60d0c4}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Header Files\Components\Scripts">
       <UniqueIdentifier>{7e64b65c-cb40-404e-9ca8-fe6bf29b5251}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Components\Scripts">
-      <UniqueIdentifier>{ce892aff-36ba-4bc3-96e7-31f3796f518e}</UniqueIdentifier>
+    <Filter Include="Source Files\Components\EngineComponents">
+      <UniqueIdentifier>{5e2a4aba-92b9-4795-8243-e3e8277765b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\EngineComponents\ColliderComponents">
+      <UniqueIdentifier>{8f8526f5-6a0f-4147-b363-81f3b1a4e4a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\EngineComponents\ColliderComponents">
+      <UniqueIdentifier>{bb9d2657-701b-411f-87ef-3dcd47ccf5e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\GraphicComponents">
+      <UniqueIdentifier>{fc6e46b3-0320-48b7-8600-308d0f7a10b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\GraphicComponents">
+      <UniqueIdentifier>{0002aeb1-bf0b-404c-be6b-1d08002a4ca7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -45,55 +63,43 @@
     <ClCompile Include="PhysicEngine.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleGraphicComponent.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Component.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="TransformComponent.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="RigidbodyComponent.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="GameObjectAndComponentCreator.cpp">
       <Filter>Source Files\GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="ColliderComponent.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerInputController.cpp">
       <Filter>Source Files\Components\Scripts</Filter>
-    </ClCompile>
-    <ClCompile Include="GraphicComponent.cpp">
-      <Filter>Source Files\Components</Filter>
     </ClCompile>
     <ClCompile Include="ScriptComponent.cpp">
       <Filter>Source Files\Components\Scripts</Filter>
     </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Source Files\Components\EngineComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidbodyComponent.cpp">
+      <Filter>Source Files\Components\EngineComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformComponent.cpp">
+      <Filter>Source Files\Components\EngineComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="ColliderComponent.cpp">
+      <Filter>Source Files\Components\EngineComponents\ColliderComponents</Filter>
+    </ClCompile>
     <ClCompile Include="RectColliderComponent.cpp">
-      <Filter>Source Files\Components</Filter>
+      <Filter>Source Files\Components\EngineComponents\ColliderComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGraphicComponent.cpp">
+      <Filter>Source Files\Components\GraphicComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicComponent.cpp">
+      <Filter>Source Files\Components\GraphicComponents</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PhysicEngine.h">
       <Filter>Header Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="SimpleGraphicComponent.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Component.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="TransformComponent.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="RigidbodyComponent.h">
-      <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Header Files\GameObject</Filter>
@@ -101,20 +107,32 @@
     <ClInclude Include="GameObjectAndComponentCreator.h">
       <Filter>Header Files\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="ColliderComponent.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerInputController.h">
       <Filter>Header Files\Components\Scripts</Filter>
-    </ClInclude>
-    <ClInclude Include="GraphicComponent.h">
-      <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="ScriptComponent.h">
       <Filter>Header Files\Components\Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Header Files\Components\EngineComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidbodyComponent.h">
+      <Filter>Header Files\Components\EngineComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformComponent.h">
+      <Filter>Header Files\Components\EngineComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="ColliderComponent.h">
+      <Filter>Header Files\Components\EngineComponents\ColliderComponents</Filter>
+    </ClInclude>
     <ClInclude Include="RectColliderComponent.h">
-      <Filter>Header Files\Components</Filter>
+      <Filter>Header Files\Components\EngineComponents\ColliderComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicComponent.h">
+      <Filter>Header Files\Components\GraphicComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGraphicComponent.h">
+      <Filter>Header Files\Components\GraphicComponents</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
