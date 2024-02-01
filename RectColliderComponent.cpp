@@ -29,30 +29,20 @@ void RectColliderComponent::start()
 
 void RectColliderComponent::SettingColliderVisual()
 {
-	int colliderBoundry = 5;
+	int colliderBoundry = 2;
 	unsigned int xTextureSize = 
 		gameObjectGraphicComponent->getXTextureSize()+colliderBoundry;
 	unsigned int yTextrueSize =
 		gameObjectGraphicComponent->getYTextureSize()+colliderBoundry;
-	rect.setSize(Vector2f(
-		xTextureSize,
-		yTextrueSize));
+	rect.setSize(Vector2f(xTextureSize,yTextrueSize));
 	rect.setOrigin(xTextureSize/2, yTextrueSize/2);
-	rect.setScale(Vector2f(gameObjecctTransform->getXScale(),
+	rect.setScale(Vector2f(
+		gameObjecctTransform->getXScale(),
 		gameObjecctTransform->getYScale()));
 	rect.setFillColor(Color::Green);
 	rect.setPosition(gameObjecctTransform->getXPosition(),
 		gameObjecctTransform->getYPosition());
 	
-	
-	//rectInvisiable
-	//rectInvisiable.setSize(Vector2f(
-	//	transform->getXTextureSize(),
-	//	transform->getYTextureSize()));
-	//rectInvisiable.setScale(Vector2f(
-	//	transform->getXScale(),
-	//	transform->getYScale()));
-	//rectInvisiable.setFillColor(Color::Black);
 
 }
 
@@ -60,17 +50,15 @@ void RectColliderComponent::SettingColliderVisual()
 
 void RectColliderComponent::update(float dtAsSecond)
 {
-	thisGameObjectBound = rect.getGlobalBounds();
 
 	if (!makeColliderVisualVisable)
 		return;
 
 	if (gameObjecctTransform != NULL)
 	{
-		rect.setPosition(gameObjecctTransform->getXPosition(), 
+		rect.setPosition(
+			gameObjecctTransform->getXPosition(), 
 			gameObjecctTransform->getYPosition());
-		/*rectInvisiable.setPosition(transform->getXPosition(),
-			transform->getYPosition());*/
 
 	}
 }
@@ -80,20 +68,24 @@ void RectColliderComponent::draw(RenderWindow& window)
 	if (!makeColliderVisualVisable)
 		return;
 
-	//window.draw(rectInvisiable);
 	window.draw(rect);
 	
 }
 
-
 FloatRect RectColliderComponent::getColliderBound()
 {
+	thisGameObjectBound = rect.getGlobalBounds();
 	return thisGameObjectBound;
 }
 
 bool RectColliderComponent::getIsColliderActive()
 {
 	return isColliderActive;
+}
+
+void RectColliderComponent::setMakeColliderVisualVisable(bool visable)
+{
+	this->makeColliderVisualVisable = visable;
 }
 
 shared_ptr<GameObject> RectColliderComponent::getThisComponentGameObject()

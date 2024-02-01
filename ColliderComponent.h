@@ -13,6 +13,7 @@ public:
 		return Specific_Tag;
 	}
 	virtual bool getIsColliderActive() = 0;
+	virtual void setMakeColliderVisualVisable(bool) = 0;
 
 
 };

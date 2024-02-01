@@ -14,7 +14,6 @@ private:
 
 	FloatRect thisGameObjectBound;
 	RectangleShape rect;
-	//RectangleShape rectInvisiable;
 	string componentName = "Rect"+ Specific_Tag;
 	bool makeColliderVisualVisable = true;
 public:
@@ -26,8 +25,10 @@ public:
 	void draw(RenderWindow& window); 
 	FloatRect getColliderBound();
 	bool getIsColliderActive();
+	void setMakeColliderVisualVisable(bool);
 	shared_ptr<GameObject>
 		getThisComponentGameObject();
+	
 
 };
 
