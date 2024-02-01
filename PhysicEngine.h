@@ -11,6 +11,7 @@ namespace pe
 	private:
 
 		RenderWindow window;
+		View gameView;
 		Clock clock;
 		Time dt;
 		float totalGameRunningTime = 0;

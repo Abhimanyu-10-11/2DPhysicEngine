@@ -8,8 +8,9 @@ PhysicEngine::PhysicEngine()
 
 	window.create(VideoMode(windowWidth, windowHeight), "2DPhysic");
 	gOAndC = new GameObjectAndComponentCreator();
+	gameView.setSize(windowWidth, windowHeight);
+	gameView.setCenter(Vector2f(0, 0));
 
-	
 }
 
 void PhysicEngine::run()
@@ -71,6 +72,7 @@ void PhysicEngine::draw()
 	for (shared_ptr<GameObject> gameObject :
 		gOAndC->getAllGameObjectList())
 	{
+		window.setView(gameView);
 		gameObject->draw(window);
 	}
 	window.display();
