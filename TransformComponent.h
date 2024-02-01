@@ -6,20 +6,38 @@ class TransformComponent : public Component
 {
 private:
 	shared_ptr<GameObject> gameObject;
-	float xPos = 100;
-	float yPos = 100; 
+	const float XSCALE = 1;
+	const float YSCALE = 1;
+	float xPos = 0;
+	float yPos = 0; 
+	float xScale = XSCALE;
+	float yScale = YSCALE;
+	unsigned int xTextrueSize = 0;
+	unsigned int yTextureSize = 0;
 public:
-	String specific_Tag = "transform";
+	string specific_Tag = "TransformComponent";
 	TransformComponent(shared_ptr<GameObject> gameObject);
+	void awake();
 	void start();
 	void update(float dtAsSecond);
-	void draw(RenderWindow& window)
-	{
-
-	}
-	String& getSpecific_Tag();
+	string& getSpecific_Tag();
+	//position
 	float& getXPosition();
+	void setXPosition(float xPos);
 	float& getYPosition();
+	void setYPosition(float yPos);
+	//scale
+	float getXScale();
+	void setXScale(float xPos);
+	float getYScale();
+	void setYScale(float yPos);
+	//textrue Size
+	unsigned int getXTextureSize();
+	void setXTextureSize(float xTextureSize);
+	unsigned int getYTextureSize();
+	void setYTextureSize(float yTextureSize);
+	
+
 
 };
 

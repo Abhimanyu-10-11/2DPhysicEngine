@@ -6,6 +6,10 @@ TransformComponent::TransformComponent(shared_ptr< GameObject> gameObject)
 	this->gameObject = gameObject;
 }
 
+void TransformComponent::awake()
+{
+}
+
 void TransformComponent::start()
 {
 	//START
@@ -13,18 +17,9 @@ void TransformComponent::start()
 
 void TransformComponent::update(float dtAsSecond)
 {
-	if (Keyboard::isKeyPressed(Keyboard::A))
-	{
-		xPos = xPos - dtAsSecond * 100;
-	}
-	if (Keyboard::isKeyPressed(Keyboard::D))
-	{
-		xPos = xPos + dtAsSecond*100;
-	}
-
 }
 
-String& TransformComponent::getSpecific_Tag()
+string& TransformComponent::getSpecific_Tag()
 {
 	return specific_Tag;
 }
@@ -34,8 +29,60 @@ float& TransformComponent::getXPosition()
 	return xPos;
 }
 
+void TransformComponent::setXPosition(float xPos)
+{
+	this->xPos = xPos;
+}
+
+void TransformComponent::setYPosition(float yPos)
+{
+	this->yPos = yPos;
+}
+
 float& TransformComponent::getYPosition()
 {
 	return yPos;
 }
+
+float TransformComponent::getXScale()
+{
+	return xScale;
+}
+
+void TransformComponent::setXScale(float xSize)
+{
+	this->xScale = xSize;
+}
+
+float TransformComponent::getYScale()
+{
+	return yScale;
+}
+
+void TransformComponent::setYScale(float ySize)
+{
+	this->yScale = ySize;
+}
+
+unsigned int TransformComponent::getXTextureSize()
+{
+	return xTextrueSize;
+}
+
+void TransformComponent::setXTextureSize(float xTextureSize)
+{
+	this->xTextrueSize = xTextureSize;
+}
+
+unsigned int TransformComponent::getYTextureSize()
+{
+	return yTextureSize;
+}
+
+void TransformComponent::setYTextureSize(float yTextureSize)
+{
+	this->yTextureSize = yTextureSize;
+}
+
+
 

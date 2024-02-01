@@ -12,21 +12,39 @@ SimpleGraphicComponent::SimpleGraphicComponent(shared_ptr<GameObject> gameObject
 	sprite.setTexture(texture);
 
 	this->gameObject = gameObject;	
+
+	
 }
 
-void SimpleGraphicComponent::start()
+void SimpleGraphicComponent::awake()
 {
 	if (gameObjectTransformComponent == NULL)
 		gameObjectTransformComponent =
 		static_pointer_cast<TransformComponent>
-		(gameObject->findComponentWithSpecificTag("transform"));
+		(gameObject->findComponentWithSpecificTag("TransformComponent"));
+	else
+		std::cout << "SimpleGraphicComponent loading transfom component failed";
+
+	gameObjectTransformComponent->setXTextureSize(texture.getSize().x);
+	gameObjectTransformComponent->setYTextureSize(texture.getSize().y);
+
 }
+
+void SimpleGraphicComponent::start()
+{
+
+	float x = gameObjectTransformComponent->getXScale();
+	float y = gameObjectTransformComponent->getXScale();
+	sprite.setTexture(texture);
+	sprite.setScale(x, y);
+
+}
+
+
 
 void SimpleGraphicComponent::update(float)
 {
 	
-
-	sprite.setTexture(texture);
 	if (gameObjectTransformComponent != NULL)
 	{
 		float x = gameObjectTransformComponent
@@ -34,6 +52,8 @@ void SimpleGraphicComponent::update(float)
 		float y = gameObjectTransformComponent
 			->getYPosition();
 		sprite.setPosition(x, y);
+		
+		
 	}
 }
 
@@ -42,7 +62,7 @@ void SimpleGraphicComponent::draw(RenderWindow& window)
 	window.draw(sprite);
 }
 
-String& SimpleGraphicComponent::getSpecific_Tag()
+string& SimpleGraphicComponent::getSpecific_Tag()
 {
 	return specific_Tag;
 }
@@ -55,6 +75,8 @@ void SimpleGraphicComponent::assignSprite(string name)
 		std::cout << "Unable to load Texture";
 	}
 	sprite.setTexture(texture);
+
+
 }
 
 

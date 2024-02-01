@@ -134,9 +134,13 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectAndComponentCreator.cpp" />
+    <ClCompile Include="GraphicComponent.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PhysicEngine.cpp" />
+    <ClCompile Include="PlayerInputController.cpp" />
+    <ClCompile Include="RectColliderComponent.cpp" />
     <ClCompile Include="RigidbodyComponent.cpp" />
+    <ClCompile Include="ScriptComponent.cpp" />
     <ClCompile Include="SimpleGraphicComponent.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
   </ItemGroup>
@@ -145,8 +149,12 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectAndComponentCreator.h" />
+    <ClInclude Include="GraphicComponent.h" />
     <ClInclude Include="PhysicEngine.h" />
+    <ClInclude Include="PlayerInputController.h" />
+    <ClInclude Include="RectColliderComponent.h" />
     <ClInclude Include="RigidbodyComponent.h" />
+    <ClInclude Include="ScriptComponent.h" />
     <ClInclude Include="SimpleGraphicComponent.h" />
     <ClInclude Include="TransformComponent.h" />
   </ItemGroup>

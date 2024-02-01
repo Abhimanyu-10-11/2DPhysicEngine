@@ -1,14 +1,18 @@
 #pragma once
 #include<SFML/Graphics.hpp>
+#include<iostream>
 using namespace sf;
+using namespace std;
+
 
 class Component
 {
+	string tag = "component";
 public:
-	String tag = "component";
+	virtual void awake() = 0;
 	virtual void start() = 0;
 	virtual void update(float) = 0;
-	virtual void draw(RenderWindow&) = 0;
-	virtual String& getSpecific_Tag() = 0;
+	virtual void draw(RenderWindow&) {}
+	virtual string& getSpecific_Tag() = 0;
 };
 

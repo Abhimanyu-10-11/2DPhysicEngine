@@ -14,6 +14,13 @@ PhysicEngine::PhysicEngine()
 
 void PhysicEngine::run()
 {
+	//GameObject Awake Calling
+	// //GameObject Start calling
+	for (shared_ptr<GameObject> gameObject :
+		gOAndC->getAllGameObjectList())
+	{
+		gameObject->awake();
+	}
 	//GameObject Start calling
 	for (shared_ptr<GameObject> gameObject :
 		gOAndC->getAllGameObjectList())
@@ -41,6 +48,8 @@ void PhysicEngine::run()
 		}
 		update(dt.asSeconds());
 		draw();
+		//check frame per second
+		//cout << dt.asSeconds()<<endl;
 		
 	}
 }

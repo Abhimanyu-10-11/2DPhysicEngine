@@ -1,5 +1,5 @@
 #include "GameObject.h"
-#include<iostream>
+
 
 int GameObject::totalNumberOfGameObjectEverCreated;
 GameObject::GameObject(string name)
@@ -7,6 +7,16 @@ GameObject::GameObject(string name)
 	totalNumberOfGameObjectEverCreated++;
 	objectId = GameObject::totalNumberOfGameObjectEverCreated;
 	this->name = name +"::"+std::to_string(objectId);
+}
+
+void GameObject::awake()
+{
+	auto start = components.begin();
+	auto end = components.end();
+	for (start; start != end; start++)
+	{
+		(*start)->awake();
+	}
 }
 
 void GameObject::start()
