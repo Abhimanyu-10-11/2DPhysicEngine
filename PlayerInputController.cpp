@@ -11,13 +11,18 @@ void PlayerInputController::awake()
 	if (transform == NULL)
 		transform = static_pointer_cast<TransformComponent>
 		(gameObject->findComponentWithSpecificTag("TransformComponent"));
+	else
+		std::cout << "unable to laod TransFormComponent in PlayerInputController.cpp";
+
 	if (rB == NULL)
 		rB = static_pointer_cast<RigidbodyComponent>
 		(gameObject->findComponentWithSpecificTag("RigidbodyComponent"));
+	else
+		std::cout << "unable to laod RigidbodyComponent in PlayerInputController.cpp";
 
-	rB->setGravity(0);
+	
 	transform->setXPosition(0);
-	transform->setYPosition(200); 
+	transform->setYPosition(0); 
 	
 }
 
@@ -50,11 +55,18 @@ void PlayerInputController::update(float dtAsSecond)
 		
 	}
 
-	if (rB->getCollisionOut().isColliding)
+	if (rB != NULL)
 	{
-		rB->setGravity(0);
-		std::cout << "run ";
+		
+		if (rB->getCollisionOut().isColliding)
+			rB->setHasGravity(false);
+		else
+			rB->setHasGravity(true);
+		
+
 	}
+
+	
 
 }
 

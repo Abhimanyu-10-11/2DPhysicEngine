@@ -28,13 +28,12 @@ void RigidbodyComponent::awake()
 
 void RigidbodyComponent::start()
 {
-	thisGameObjectColliderBound = static_pointer_cast<ColliderComponent>(gameObject->findComponentWithSpecificTag("ColliderComponent"))->getColliderBound();
-	
-	
+
 }
 
 void RigidbodyComponent::update(float dtAsSecond)
 {
+	
 	if (gameObjectTransformComponent != NULL)
 	{
 		if(hasGravity)
@@ -46,14 +45,21 @@ void RigidbodyComponent::update(float dtAsSecond)
 
 void RigidbodyComponent::collisionDetectionSystem()
 {
+	if (!thisGameObjectColliderComponent->getIsColliderActive())
+		return;
+
 	collisionOut.isColliding = false;
 	for (auto colliderComponent : PhysicEngine::gOAndC->getAllColliderComponents())
 	{
 		if (colliderComponent == thisGameObjectColliderComponent)
 			continue;
+
+		thisGameObjectColliderBound = thisGameObjectColliderComponent
+			->getColliderBound();
 		
 			if (thisGameObjectColliderBound.intersects(colliderComponent->getColliderBound()))
 			{
+				std::cout << "collided ";
 				collisionOut.collidedGameObject = colliderComponent->getThisComponentGameObject();
 				collisionOut.isColliding = true;
 			}

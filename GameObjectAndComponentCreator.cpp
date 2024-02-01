@@ -7,14 +7,26 @@
 
 GameObjectAndComponentCreator::GameObjectAndComponentCreator()
 {
-	vector<string> componentList;
+
+
+	
+	gameObjectName = "player";
+	spritefile = "player.png";
 	componentList.push_back("RectColliderComponent");
 	componentList.push_back("SimpleGraphicComponent");
 	componentList.push_back("RigidbodyComponent");
 	componentList.push_back("PlayerInputController");
-	createGameObject("player", componentList);
-	componentList.pop_back();
-	createGameObject("player1", componentList);
+	createGameObject();
+
+	//second object;
+	componentList.clear();
+
+	gameObjectName = "player1";
+	spritefile = "bloaterZombie.png";
+	componentList.push_back("RectColliderComponent");
+	componentList.push_back("SimpleGraphicComponent");
+	//componentList.push_back("RigidbodyComponent");
+	createGameObject();
 
 }
 
@@ -25,11 +37,12 @@ vector<shared_ptr<GameObject>> GameObjectAndComponentCreator::getAllGameObjectLi
 
 
 
-void GameObjectAndComponentCreator::createGameObject(string name , vector<string>& componentsList)
+void GameObjectAndComponentCreator::createGameObject()
 {
-	shared_ptr<GameObject> gameObject = make_shared<GameObject>(name);
+	shared_ptr<GameObject> gameObject = make_shared<GameObject>();
+	gameObject->setName(gameObjectName);
 	allGameObject.push_back(gameObject);
-	createComponentsforGameObject(gameObject, componentsList);
+	createComponentsforGameObject(gameObject);
 }
 
 vector<shared_ptr<ColliderComponent>> GameObjectAndComponentCreator::getAllColliderComponents()
@@ -39,11 +52,11 @@ vector<shared_ptr<ColliderComponent>> GameObjectAndComponentCreator::getAllColli
 
 
 void GameObjectAndComponentCreator::
-createComponentsforGameObject(shared_ptr<GameObject> gameObject, vector<string>& componentsList)
+createComponentsforGameObject(shared_ptr<GameObject> gameObject)
 {
 	gameObject->addComponent(make_shared<TransformComponent>(gameObject));
 
-	for (string component : componentsList)
+	for (string component : this->componentList)
 	{
 		if (component == "RigidbodyComponent")
 		{
@@ -54,20 +67,25 @@ createComponentsforGameObject(shared_ptr<GameObject> gameObject, vector<string>&
 
 		if (component == "SimpleGraphicComponent")
 		{
-			gameObject->addComponent(make_shared<SimpleGraphicComponent>(gameObject));
+			shared_ptr<SimpleGraphicComponent> SGC =
+				make_shared<SimpleGraphicComponent>(gameObject);
+			SGC->assignSprite(spritefile);
+			gameObject->addComponent(SGC);
 		}
-		if (component == "PlayerInputController")
-		{
 
-			gameObject->addComponent(make_shared<PlayerInputController>(gameObject));
-			
-		}
 		if (component == "RectColliderComponent")
 		{
 			shared_ptr<RectColliderComponent> RCC = make_shared<RectColliderComponent>(gameObject);
 			gameObject->addComponent(RCC);
 			allColliderComponent.push_back(RCC);
 
+		}
+
+		if (component == "PlayerInputController")
+		{
+
+			gameObject->addComponent(make_shared<PlayerInputController>(gameObject));
+			
 		}
 	}
 

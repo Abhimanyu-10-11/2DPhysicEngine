@@ -5,7 +5,6 @@
 #include"GameObject.h"
 #include<SFML/Graphics.hpp>
 using namespace sf;
-
 struct CollisionOut
 {
 	std::shared_ptr<GameObject> collidedGameObject;
@@ -18,6 +17,8 @@ private:
 	const float GRAVITY = 90.80f;
 	float gravity = GRAVITY;
 	CollisionOut collisionOut;//make this pointer of sometype
+	
+
 	std::shared_ptr<GameObject> gameObject;
 	
 	std::shared_ptr<TransformComponent> gameObjectTransformComponent;

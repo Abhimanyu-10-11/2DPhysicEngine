@@ -4,12 +4,6 @@
 
 SimpleGraphicComponent::SimpleGraphicComponent(shared_ptr<GameObject> gameObject)
 {
-	String tex = "graphics/player.png";
-	if (!texture.loadFromFile(tex))
-	{
-		std::cout << "Unable to load Texture";
-	}
-	sprite.setTexture(texture);
 
 	this->gameObject = gameObject;	
 

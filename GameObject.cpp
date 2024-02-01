@@ -2,11 +2,11 @@
 
 
 int GameObject::totalNumberOfGameObjectEverCreated;
-GameObject::GameObject(string name)
+GameObject::GameObject()
 {
 	totalNumberOfGameObjectEverCreated++;
 	objectId = GameObject::totalNumberOfGameObjectEverCreated;
-	this->name = name +"::"+std::to_string(objectId);
+	
 }
 
 void GameObject::awake()
@@ -74,4 +74,9 @@ shared_ptr<Component> GameObject::findComponentWithSpecificTag(string component)
 String GameObject::getName()
 {
 	return name;
+}
+
+void GameObject::setName(string name)
+{
+	this->name = name + "::" + std::to_string(objectId);
 }

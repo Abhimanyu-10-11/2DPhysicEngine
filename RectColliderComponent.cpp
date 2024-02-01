@@ -32,7 +32,7 @@ void RectColliderComponent::SettingColliderVisual()
 	rect.setFillColor(Color::Green);
 	rect.setPosition(transform->getXPosition(),
 		transform->getYPosition());
-	thisGameObjectBound = rect.getGlobalBounds();
+	
 	
 	//rectInvisiable
 	//rectInvisiable.setSize(Vector2f(
@@ -49,7 +49,9 @@ void RectColliderComponent::SettingColliderVisual()
 
 void RectColliderComponent::update(float dtAsSecond)
 {
-	if (!makeColliderVisiable)
+	thisGameObjectBound = rect.getGlobalBounds();
+
+	if (!makeColliderVisualVisable)
 		return;
 
 	if (transform != NULL)
@@ -64,7 +66,7 @@ void RectColliderComponent::update(float dtAsSecond)
 
 void RectColliderComponent::draw(RenderWindow& window)
 {
-	if (!makeColliderVisiable)
+	if (!makeColliderVisualVisable)
 		return;
 
 	//window.draw(rectInvisiable);
@@ -76,6 +78,11 @@ void RectColliderComponent::draw(RenderWindow& window)
 FloatRect RectColliderComponent::getColliderBound()
 {
 	return thisGameObjectBound;
+}
+
+bool RectColliderComponent::getIsColliderActive()
+{
+	return isColliderActive;
 }
 
 shared_ptr<GameObject> RectColliderComponent::getThisComponentGameObject()

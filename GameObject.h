@@ -15,7 +15,7 @@ private:
 public:
 	static int totalNumberOfGameObjectEverCreated;
 	string tag = "GameObject";
-	GameObject(string name);
+	GameObject();
 	void awake();///to set of object variables and reference and to push data to other places
 	void start();//To pull data from other places
 	void update(float dtAsSecond);
@@ -23,6 +23,7 @@ public:
 	void addComponent(shared_ptr<Component>  component);
 	shared_ptr<Component> findComponentWithSpecificTag(string component);
 	String getName();
+	void setName(string name);
 
 };
 
