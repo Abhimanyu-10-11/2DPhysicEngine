@@ -1,4 +1,6 @@
 #include "GameObject.h"
+#include<iostream>
+#include"RectColliderComponent.h"
 
 
 int GameObject::totalNumberOfGameObjectEverCreated;
@@ -55,6 +57,9 @@ void GameObject::addComponent(shared_ptr<Component> component)
 	components.push_back(component);
 }
 
+
+
+
 shared_ptr<Component> GameObject::findComponentWithSpecificTag(string component)
 {
 	auto start = components.begin();
@@ -69,7 +74,9 @@ shared_ptr<Component> GameObject::findComponentWithSpecificTag(string component)
 		index++;
 	}
 	return NULL;
+	
 }
+
 
 String GameObject::getName()
 {

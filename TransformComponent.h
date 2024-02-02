@@ -15,6 +15,7 @@ private:
 	float yScale = YSCALE;
 public:
 	string specific_Tag = "TransformComponent";
+	TransformComponent() {}
 	TransformComponent(shared_ptr<GameObject> gameObject);
 	void awake();
 	void start();

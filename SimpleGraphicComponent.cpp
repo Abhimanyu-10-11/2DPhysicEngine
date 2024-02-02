@@ -11,14 +11,11 @@ void SimpleGraphicComponent::awake()
 {
 	if (gameObjectTransformComponent == NULL)
 		gameObjectTransformComponent =
-		static_pointer_cast<TransformComponent>
-		(gameObject->findComponentWithSpecificTag("TransformComponent"));
+		gameObject->getComponentOfType<TransformComponent>();
 	else
 		std::cout << "SimpleGraphicComponent loading transfom component failed";
 
 
-	//gameObjectTransformComponent->setXTextureSize(texture.getSize().x);
-	//gameObjectTransformComponent->setYTextureSize(texture.getSize().y);
 
 }
 

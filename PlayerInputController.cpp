@@ -21,8 +21,8 @@ void PlayerInputController::awake()
 		std::cout << "unable to laod RigidbodyComponent in PlayerInputController.cpp";
 
 	
-	transform->setXPosition(300);
-	transform->setYPosition(300); 
+	transform->setXPosition(30);
+	transform->setYPosition(30); 
 	
 }
 

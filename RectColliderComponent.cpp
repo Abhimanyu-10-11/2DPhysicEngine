@@ -8,9 +8,7 @@ RectColliderComponent::RectColliderComponent(shared_ptr<GameObject> gameObject)
 void RectColliderComponent::awake()
 {
 	if (gameObjecctTransform == NULL)
-		gameObjecctTransform =
-		static_pointer_cast<TransformComponent>
-		(gameObject->findComponentWithSpecificTag("TransformComponent"));
+		gameObjecctTransform = gameObject->getComponentOfType<TransformComponent>();
 	else
 		std::cout << "unable to load TransfomComponent in RectColliderComponent.cpp";
 
@@ -29,13 +27,13 @@ void RectColliderComponent::start()
 
 void RectColliderComponent::SettingColliderVisual()
 {
-	int colliderBoundry = 2;
-	unsigned int xTextureSize = 
-		gameObjectGraphicComponent->getXTextureSize()+colliderBoundry;
-	unsigned int yTextrueSize =
-		gameObjectGraphicComponent->getYTextureSize()+colliderBoundry;
-	rect.setSize(Vector2f(xTextureSize,yTextrueSize));
-	rect.setOrigin(xTextureSize/2, yTextrueSize/2);
+	int collider_Boundry = 2;
+	float x_TextureSize = 
+		gameObjectGraphicComponent->getXTextureSize()+collider_Boundry;
+	float y_TextrueSize =
+		gameObjectGraphicComponent->getYTextureSize()+collider_Boundry;
+	rect.setSize(Vector2f(x_TextureSize, y_TextrueSize));
+	rect.setOrigin(x_TextureSize /2, y_TextrueSize /2);
 	rect.setScale(Vector2f(
 		gameObjecctTransform->getXScale(),
 		gameObjecctTransform->getYScale()));

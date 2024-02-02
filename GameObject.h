@@ -22,8 +22,31 @@ public:
 	void draw(RenderWindow& window);
 	void addComponent(shared_ptr<Component>  component);
 	shared_ptr<Component> findComponentWithSpecificTag(string component);
+	template<class T>
+	shared_ptr<T> getComponentOfType();
 	String getName();
 	void setName(string name);
 
 };
 
+template<class T>
+inline shared_ptr<T> GameObject::getComponentOfType()
+{
+	T temp;
+	string component_Name = temp.getSpecific_Tag();
+
+	auto start = components.begin();
+	auto end = components.end();
+	int index = 0;
+	for (start; start != end; start++)
+	{
+		if (component_Name == (*start)->getSpecific_Tag())
+		{
+			return static_pointer_cast<T>
+				(components[index]);;
+		}
+		index++;
+	}
+
+	return NULL;
+}
