@@ -12,11 +12,12 @@ private:
 	float xSpritePos = 0;
 	float ySpritePos = 0;
 	float spriteRotation = 0;
-	shared_ptr<TransformComponent> gameObjectTransformComponent;
+	shared_ptr<TransformComponent> transform;
 	string componentName = "Simple"+specific_Tag;
 	unsigned int xTextrueSize = 0;
 	unsigned int yTextureSize = 0;
 public:
+	SimpleGraphicComponent() {}
 	SimpleGraphicComponent(
 		shared_ptr<GameObject> gameObject);
 	void awake();

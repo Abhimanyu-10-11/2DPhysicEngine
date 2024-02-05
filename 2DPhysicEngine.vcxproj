@@ -131,6 +131,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ColliderComponent.cpp" />
+    <ClCompile Include="CollisionDetectionSytem.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectAndComponentCreator.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectAndComponentCreator.h" />
     <ClInclude Include="GraphicComponent.h" />
+    <ClInclude Include="MathMy.h" />
     <ClInclude Include="PhysicEngine.h" />
     <ClInclude Include="PlayerInputController.h" />
     <ClInclude Include="RectColliderComponent.h" />

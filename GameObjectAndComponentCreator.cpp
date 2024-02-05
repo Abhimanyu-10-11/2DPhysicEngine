@@ -21,7 +21,7 @@ GameObjectAndComponentCreator::GameObjectAndComponentCreator()
 	//second object;
 	componentList.clear();
 
-	gameObjectName = "player1";
+	gameObjectName = "bloaterZombie";
 	spritefile = "bloaterZombie.png";
 	componentList.push_back("RectColliderComponent");
 	componentList.push_back("SimpleGraphicComponent");

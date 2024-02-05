@@ -7,17 +7,10 @@ TransformComponent::TransformComponent(shared_ptr< GameObject> gameObject)
 	this->gameObject = gameObject;
 }
 
-void TransformComponent::awake()
-{
-}
-
-void TransformComponent::start()
-{
-	//START
-}
 
 void TransformComponent::update(float dtAsSecond)
 {
+	this->rotation += rotateValue * dtAsSecond;
 }
 
 shared_ptr<GameObject> TransformComponent::getThisComponentGameObject()
@@ -30,44 +23,74 @@ string& TransformComponent::getSpecific_Tag()
 	return specific_Tag;
 }
 
-float& TransformComponent::getXPosition()
+//float& TransformComponent::getXPosition()
+//{
+//	return xPos;
+//}
+//
+//void TransformComponent::setXPosition(float xPos)
+//{
+//	this->xPos = xPos;
+//}
+//
+//void TransformComponent::setYPosition(float yPos)
+//{
+//	this->yPos = yPos;
+//}
+
+Vector2f& TransformComponent::getPosition()
 {
-	return xPos;
+	return position;
 }
 
-void TransformComponent::setXPosition(float xPos)
+void TransformComponent::setPosition(Vector2f position)
 {
-	this->xPos = xPos;
+	this->position = position;
 }
 
-void TransformComponent::setYPosition(float yPos)
+void TransformComponent::setPosition(float x, float y)
 {
-	this->yPos = yPos;
+	this->position = Vector2f(x, y);
 }
 
-float& TransformComponent::getYPosition()
+//float& TransformComponent::getYPosition()
+//{
+//	return yPos;
+//}
+//
+//float TransformComponent::getXScale()
+//{
+//	return xScale;
+//}
+//
+//void TransformComponent::setXScale(float xSize)
+//{
+//	this->xScale = xSize;
+//}
+//
+//float TransformComponent::getYScale()
+//{
+//	return yScale;
+//}
+
+//void TransformComponent::setYScale(float ySize)
+//{
+//	this->yScale = ySize;
+//}
+
+Vector2f& TransformComponent::getScale()
 {
-	return yPos;
+	return scale;
 }
 
-float TransformComponent::getXScale()
+void TransformComponent::setScale(Vector2f scale)
 {
-	return xScale;
+	this->scale = scale;
 }
 
-void TransformComponent::setXScale(float xSize)
+void TransformComponent::setScale(float x, float y)
 {
-	this->xScale = xSize;
-}
-
-float TransformComponent::getYScale()
-{
-	return yScale;
-}
-
-void TransformComponent::setYScale(float ySize)
-{
-	this->yScale = ySize;
+	this->scale = Vector2f(x, y);
 }
 
 void TransformComponent::setRotation(float rotation)
@@ -78,6 +101,11 @@ void TransformComponent::setRotation(float rotation)
 float& TransformComponent::getRotation()
 {
 	return rotation;
+}
+
+void TransformComponent::rotate(float value)
+{
+	this->rotateValue = value;
 }
 
 

@@ -8,7 +8,7 @@ using namespace std;
 class GameObject;
 class Component
 {
-	string tag = "component";
+	string tag = "Component";
 public:
 	virtual void awake() = 0;
 	virtual void start() = 0;

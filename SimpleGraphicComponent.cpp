@@ -9,8 +9,8 @@ SimpleGraphicComponent::SimpleGraphicComponent(shared_ptr<GameObject> gameObject
 
 void SimpleGraphicComponent::awake()
 {
-	if (gameObjectTransformComponent == NULL)
-		gameObjectTransformComponent =
+	if (transform == NULL)
+		transform =
 		gameObject->getComponentOfType<TransformComponent>();
 	else
 		std::cout << "SimpleGraphicComponent loading transfom component failed";
@@ -23,26 +23,20 @@ void SimpleGraphicComponent::awake()
 void SimpleGraphicComponent::start()
 {
 	
-
-	float x = gameObjectTransformComponent->getXScale();
-	float y = gameObjectTransformComponent->getXScale();
 	sprite.setTexture(texture);
-	sprite.setScale(x, y);
+	sprite.setScale(transform->getScale());
 
 }
 
 void SimpleGraphicComponent::update(float)
 {
 	
-	if (gameObjectTransformComponent != NULL)
+	if (transform != NULL)
 	{
-		xSpritePos = gameObjectTransformComponent
-			->getXPosition();
-		ySpritePos = gameObjectTransformComponent
-			->getYPosition();
-		spriteRotation = gameObjectTransformComponent->getRotation();
+
+		spriteRotation = transform->getRotation();
 		sprite.setRotation(spriteRotation);
-		sprite.setPosition(xSpritePos, ySpritePos);
+		sprite.setPosition(transform->getPosition());
 	}
 }
 

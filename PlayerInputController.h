@@ -12,6 +12,7 @@ private:
 	string specific_Tag = "PlayerInputController";
 	shared_ptr<TransformComponent> transform;
 	shared_ptr<RigidbodyComponent> rB;
+	float speed = 200;
 public:
 	PlayerInputController(shared_ptr<GameObject> gameObject);
 	void awake();

@@ -2,19 +2,19 @@
 #include"ColliderComponent.h"
 #include"GameObject.h"
 #include"TransformComponent.h"
-#include"GraphicComponent.h"
+#include"SimpleGraphicComponent.h"
 
 
 class RectColliderComponent : public ColliderComponent///check this inheritance
 {
 private:
 	shared_ptr<GameObject> gameObject;
-	shared_ptr<TransformComponent> gameObjecctTransform;
-	shared_ptr<GraphicComponent> gameObjectGraphicComponent;
+	shared_ptr<TransformComponent> transform;
+	shared_ptr<SimpleGraphicComponent> gameObjectSimpleGraphicComponent;
 
 	FloatRect thisGameObjectBound;
 	RectangleShape rect;
-	string componentName = "Rect"+ Specific_Tag;
+	string componentName = "Rect"+ Tag;
 	bool makeColliderVisualVisable = true;
 public:
 	RectColliderComponent(shared_ptr<GameObject> gameObject);

@@ -15,7 +15,7 @@ namespace pe
 		Clock clock;
 		Time dt;
 		float totalGameRunningTime = 0;
-		int windowWidth = 1920 / 2, windowHeight = 1080 / 2;
+		float windowWidth = 1920 / 2, windowHeight = 1080 / 2;
 		void update(float dtAsSecond);
 		void draw();
 	public:

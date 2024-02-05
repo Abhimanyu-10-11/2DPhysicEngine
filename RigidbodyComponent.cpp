@@ -1,11 +1,6 @@
 #include "RigidbodyComponent.h"
 #include"ColliderComponent.h"
 
-#include"PhysicEngine.h"
-using namespace pe;
-GameObjectAndComponentCreator* PhysicEngine::gOAndC;
-
-
 RigidbodyComponent::RigidbodyComponent(shared_ptr<GameObject> gameObject)
 {
 	this->gameObject = gameObject;
@@ -13,8 +8,8 @@ RigidbodyComponent::RigidbodyComponent(shared_ptr<GameObject> gameObject)
 
 void RigidbodyComponent::awake()
 {
-	if (gameObjectTransformComponent == NULL)
-		gameObjectTransformComponent =
+	if (transform == NULL)
+		transform =
 		static_pointer_cast<TransformComponent>
 		(gameObject->findComponentWithSpecificTag("TransformComponent"));
 	if (thisGameObjectColliderComponent == NULL)
@@ -28,45 +23,52 @@ void RigidbodyComponent::awake()
 
 void RigidbodyComponent::start()
 {
+	gravityForce = Vector2f(gravity*mass);
 
+	
 }
 
 void RigidbodyComponent::update(float dtAsSecond)
 {
 	
-	if (gameObjectTransformComponent != NULL)
+	
+	fixedUpdateTimer += dtAsSecond;
+	if (fixedUpdateTimer >= fixedUpdateCall)
 	{
-		if(hasGravity)
-			gameObjectTransformComponent->getYPosition() += gravity *dtAsSecond;
+		fixedUpdate();
+		fixedUpdateTimer = 0;
 	}
 	//Optimize this by not calling every frame
 	collisionDetectionSystem();
 }
 
-void RigidbodyComponent::collisionDetectionSystem()
+void RigidbodyComponent::fixedUpdate()
 {
-	if (!thisGameObjectColliderComponent->getIsColliderActive())
-		return;
-
-	collisionOut.isColliding = false;
-	for (auto colliderComponent : PhysicEngine::gOAndC->getAllColliderComponents())
-	{
-		if (colliderComponent == thisGameObjectColliderComponent)
-			continue;
-
-		thisGameObjectColliderBound = thisGameObjectColliderComponent
-			->getColliderBound();
-		
-			if (thisGameObjectColliderBound.intersects(colliderComponent->getColliderBound()))
-			{
-				std::cout << "collided ";
-				collisionOut.collidedGameObject = colliderComponent->getThisComponentGameObject();
-				collisionOut.isColliding = true;
-			}
+	force = Vector2f(velocity*mass);
+	velocity = Vector2f(0, 0);
 	
+	if (transform != NULL)
+	{
+		if (hasGravity)
+		{
+			transform->getPosition() += gravityForce * fixedUpdateCall;
+
+		}
+
+		if (collisionOut.isColliding && hasGravity)
+		{
+			transform->getPosition() += -gravityForce * fixedUpdateCall;
+			
+		}
+
+		transform->getPosition() += force *fixedUpdateCall;
 	}
 
 }
+
+
+
+
 
 string& RigidbodyComponent::getSpecific_Tag()
 {
@@ -83,16 +85,41 @@ bool RigidbodyComponent::getHasGravity()
 	return hasGravity;
 }
 
-void RigidbodyComponent::setGravity(float gravity)
+void RigidbodyComponent::setGravity(Vector2f gravity)
 {
 	this->gravity = gravity;
 }
 
 
 
-float RigidbodyComponent::getGravity()
+Vector2f RigidbodyComponent::getGravity()
 {
 	return gravity;
+}
+
+void RigidbodyComponent::setMass(float mass)
+{
+	this->mass = mass;
+}
+
+float RigidbodyComponent::getMass()
+{
+	return mass;
+}
+
+void RigidbodyComponent::setVelocity(Vector2f velocity)
+{
+	this->velocity = velocity;
+}
+
+void RigidbodyComponent::setVelocity(float x, float y)
+{
+	this->velocity = Vector2f(x, y);
+}
+
+Vector2f& RigidbodyComponent::getVelocity()
+{
+	return velocity;
 }
 
 shared_ptr<GameObject> RigidbodyComponent::getThisComponentGameObject()

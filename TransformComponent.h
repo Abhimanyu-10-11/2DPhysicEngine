@@ -8,33 +8,31 @@ private:
 	shared_ptr<GameObject> gameObject;
 	const float XSCALE = 1;
 	const float YSCALE = 1;
-	float xPos = 0;
-	float yPos = 0;
+	Vector2f position;
 	float rotation = 0;
-	float xScale = XSCALE;
-	float yScale = YSCALE;
+	float rotateValue = 0;
+	Vector2f scale = Vector2f(XSCALE,YSCALE);
 public:
 	string specific_Tag = "TransformComponent";
-	TransformComponent() {}
+		TransformComponent() {}
 	TransformComponent(shared_ptr<GameObject> gameObject);
-	void awake();
-	void start();
+	void awake(){}
+	void start(){}
 	void update(float dtAsSecond);
 	shared_ptr<GameObject> getThisComponentGameObject();
 	string& getSpecific_Tag();
 	//position
-	float& getXPosition();
-	void setXPosition(float xPos);
-	float& getYPosition();
-	void setYPosition(float yPos);
+	Vector2f& getPosition();
+	void setPosition(Vector2f position);
+	void setPosition(float x, float y);
 	//scale
-	float getXScale();
-	void setXScale(float xPos);
-	float getYScale();
-	void setYScale(float yPos);
+	Vector2f& getScale();
+	void setScale(Vector2f scale);
+	void setScale(float x, float y);
 	//rotation
 	void setRotation(float rotation);
 	float& getRotation();
+	void rotate(float value);
 
 	
 

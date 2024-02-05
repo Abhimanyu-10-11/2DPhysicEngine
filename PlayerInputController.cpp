@@ -21,8 +21,9 @@ void PlayerInputController::awake()
 		std::cout << "unable to laod RigidbodyComponent in PlayerInputController.cpp";
 
 	
-	transform->setXPosition(30);
-	transform->setYPosition(30); 
+	transform->setPosition(300,30);
+	
+	
 	
 }
 
@@ -36,34 +37,46 @@ void PlayerInputController::update(float dtAsSecond)
 {
 	if (Keyboard::isKeyPressed(Keyboard::D))
 	{
-		transform->getXPosition() += 100 * dtAsSecond;
-		transform->getRotation() += 20 * dtAsSecond;;
+		transform->getPosition().x += speed * dtAsSecond;
+		
 		
 	}
 	if (Keyboard::isKeyPressed(Keyboard::A))
 	{
-		transform->getXPosition() -= 100 * dtAsSecond;
-		
+		transform->getPosition().x -= speed * dtAsSecond;		
 	}
 	if (Keyboard::isKeyPressed(Keyboard::W))
 	{
-		transform->getYPosition() -= 100 * dtAsSecond;
-		
+		transform->getPosition().y -= speed * dtAsSecond;
 	}
 	if (Keyboard::isKeyPressed(Keyboard::S))
 	{
-		transform->getYPosition() += 100 * dtAsSecond;
-		
+		transform->getPosition().y += speed * dtAsSecond;	
 	}
+	
+
+	transform->rotate(0);
+	if (Keyboard::isKeyPressed(Keyboard::E))
+	{
+		transform->rotate(50);
+	}
+	if (Keyboard::isKeyPressed(Keyboard::Q))
+	{
+		transform->rotate(-50);
+	}
+
 
 	if (rB != NULL)
 	{
+			
+		if (Keyboard::isKeyPressed(Keyboard::F))
+		{
+			rB->setVelocity(1000, -800);
+		}
 		
-		if (rB->getCollisionOut().isColliding)
-			rB->setHasGravity(false);
-		else
-			rB->setHasGravity(false);
-	
+
+		
+
 	}
 
 }
