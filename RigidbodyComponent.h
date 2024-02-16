@@ -1,36 +1,32 @@
 #pragma once
 #include"Component.h"
 #include"TransformComponent.h"
+#include<SFML/Graphics.hpp>
 #include"ColliderComponent.h"
 #include"GameObject.h"
-#include<SFML/Graphics.hpp>
 using namespace sf;
-struct CollisionOut
-{
-	std::shared_ptr<GameObject> collidedGameObject;
-	bool isColliding = false;
-};
+#define GRAVITY 90.80
+#define MASS 1.0
+
 
 class RigidbodyComponent : public Component
 {
 private:
-	const float GRAVITY = 0; //90.80f;
-	const float MASS = 1.0f;
 	Vector2f gravity = Vector2f(0, GRAVITY);
 	float mass = MASS;
 	Vector2f velocity = Vector2f(0, 0);
-	Vector2f unitVelocity = Vector2f(0, 0);
 	Vector2f force = Vector2f(0,0);
-	Vector2f gravityForce = Vector2f(gravity*mass);
+
 	CollisionOut collisionOut;//make this pointer of sometype
 
 
 	std::shared_ptr<GameObject> gameObject;
 	std::shared_ptr<TransformComponent> transform;
-	std::shared_ptr<ColliderComponent> thisGameObjectColliderComponent;
+	std::shared_ptr<ColliderComponent> colliderComponent;
 	string specific_Tag = "RigidbodyComponent";
-	bool hasGravity = true;
+	bool hasGravity = false;
 	void collisionDetectionSystem();
+	void CircleToCircleCollision(shared_ptr<ColliderComponent> otherColliderComponent);
 	FloatRect thisGameObjectColliderBound;
 	FloatRect colliderInterSection;
 	void awake();

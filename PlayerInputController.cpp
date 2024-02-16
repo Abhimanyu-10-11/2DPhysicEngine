@@ -66,18 +66,13 @@ void PlayerInputController::update(float dtAsSecond)
 	}
 
 
-	if (rB != NULL)
-	{
+
 			
-		if (Keyboard::isKeyPressed(Keyboard::F))
-		{
-			rB->setVelocity(1000, -800);
-		}
-		
-
-		
-
+	if (Keyboard::isKeyPressed(Keyboard::F))
+	{
+		rB->setVelocity(100, -200);
 	}
+
 
 }
 

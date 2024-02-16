@@ -17,6 +17,7 @@ private:
 	string componentName = "Rect"+ Tag;
 	bool makeColliderVisualVisable = true;
 public:
+	//CollisionType collisionType = CollisionType::Box;
 	RectColliderComponent(shared_ptr<GameObject> gameObject);
 	void awake();
 	void start();
@@ -27,6 +28,7 @@ public:
 	void setIsColliderActive(bool active);
 	bool getIsColliderActive();
 	void setMakeColliderVisualVisable(bool);
+	int getCollisionType();
 	shared_ptr<GameObject>
 		getThisComponentGameObject();
 	

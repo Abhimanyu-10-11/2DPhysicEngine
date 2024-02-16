@@ -19,12 +19,15 @@ public:
 	void awake();
 	void start();
 	void SettingColliderVisual();
+	//CollisionType CollisionType();
 	void update(float dtAsSecond);
 	void draw(RenderWindow& window);
 	FloatRect getColliderBound();
 	void setIsColliderActive(bool active);
 	bool getIsColliderActive();
+	float getRadius();
 	void setMakeColliderVisualVisable(bool visable);
+	int getCollisionType();
 	shared_ptr<GameObject>
 		getThisComponentGameObject();
 

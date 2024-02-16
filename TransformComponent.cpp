@@ -23,20 +23,6 @@ string& TransformComponent::getSpecific_Tag()
 	return specific_Tag;
 }
 
-//float& TransformComponent::getXPosition()
-//{
-//	return xPos;
-//}
-//
-//void TransformComponent::setXPosition(float xPos)
-//{
-//	this->xPos = xPos;
-//}
-//
-//void TransformComponent::setYPosition(float yPos)
-//{
-//	this->yPos = yPos;
-//}
 
 Vector2f& TransformComponent::getPosition()
 {
@@ -53,30 +39,7 @@ void TransformComponent::setPosition(float x, float y)
 	this->position = Vector2f(x, y);
 }
 
-//float& TransformComponent::getYPosition()
-//{
-//	return yPos;
-//}
-//
-//float TransformComponent::getXScale()
-//{
-//	return xScale;
-//}
-//
-//void TransformComponent::setXScale(float xSize)
-//{
-//	this->xScale = xSize;
-//}
-//
-//float TransformComponent::getYScale()
-//{
-//	return yScale;
-//}
 
-//void TransformComponent::setYScale(float ySize)
-//{
-//	this->yScale = ySize;
-//}
 
 Vector2f& TransformComponent::getScale()
 {

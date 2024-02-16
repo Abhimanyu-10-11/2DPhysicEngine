@@ -140,11 +140,11 @@
     <ClInclude Include="RigidbodyComponent.h">
       <Filter>Header Files\Components\EngineComponents\Physic&amp;ColliderComponents</Filter>
     </ClInclude>
-    <ClInclude Include="MathMy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CircleColliderComponent.h">
       <Filter>Header Files\Components\EngineComponents\Physic&amp;ColliderComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="MathMy.h">
+      <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

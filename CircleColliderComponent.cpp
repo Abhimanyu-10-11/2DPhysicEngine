@@ -29,7 +29,7 @@ void CircleColliderComponent::SettingColliderVisual()
 	float circleRadius = gameObjectSimpleGraphicComponent->getXTextureSize()/2;
 	circle.setRadius(circleRadius);
 	circle.setFillColor(Color(0,0,1,0));
-	circle.setOutlineThickness(5);
+	circle.setOutlineThickness(2);
 	circle.setOutlineColor(Color::Green);
 	circle.setScale(transform->getScale());
 	circle.setOrigin(circleRadius , circleRadius );
@@ -49,6 +49,11 @@ void CircleColliderComponent::draw(RenderWindow& window)
 		return;
 
 	window.draw(circle);
+}
+
+int CircleColliderComponent::getCollisionType()
+{
+	return CollisionType::Circle;
 }
 
 FloatRect CircleColliderComponent::getColliderBound()
@@ -75,4 +80,9 @@ void CircleColliderComponent::setMakeColliderVisualVisable(bool visable)
 shared_ptr<GameObject> CircleColliderComponent::getThisComponentGameObject()
 {
 	return gameObject;
+}
+
+float CircleColliderComponent::getRadius()
+{
+	return circle.getRadius();
 }

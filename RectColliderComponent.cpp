@@ -87,6 +87,11 @@ void RectColliderComponent::setMakeColliderVisualVisable(bool visable)
 	this->makeColliderVisualVisable = visable;
 }
 
+int RectColliderComponent::getCollisionType()
+{
+	return CollisionType::Box;
+}
+
 shared_ptr<GameObject> RectColliderComponent::getThisComponentGameObject()
 {
 	return gameObject;

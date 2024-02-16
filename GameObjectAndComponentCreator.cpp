@@ -12,7 +12,6 @@ GameObjectAndComponentCreator::GameObjectAndComponentCreator()
 	
 	gameObjectName = "player";
 	spritefile = "player.png";
-	//componentList.push_back("RectColliderComponent");
 	componentList.push_back("SimpleGraphicComponent");
 	componentList.push_back("RigidbodyComponent");
 	componentList.push_back("PlayerInputController");
@@ -21,13 +20,15 @@ GameObjectAndComponentCreator::GameObjectAndComponentCreator()
 
 	//second object;
 	componentList.clear();
-
 	gameObjectName = "bloaterZombie";
 	spritefile = "bloaterZombie.png";
-	componentList.push_back("RectColliderComponent");
+	componentList.push_back("CircleColliderComponent");
 	componentList.push_back("SimpleGraphicComponent");
 	componentList.push_back("RigidbodyComponent");
 	createGameObject();
+	createGameObject();
+
+
 
 }
 
@@ -55,7 +56,10 @@ vector<shared_ptr<ColliderComponent>> GameObjectAndComponentCreator::getAllColli
 void GameObjectAndComponentCreator::
 createComponentsforGameObject(shared_ptr<GameObject> gameObject)
 {
-	gameObject->addComponent(make_shared<TransformComponent>(gameObject));
+
+
+	shared_ptr<TransformComponent> TC = make_shared<TransformComponent>(gameObject);
+	gameObject->addComponent(TC);
 
 	for (string component : this->componentList)
 	{

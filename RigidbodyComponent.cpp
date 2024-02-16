@@ -10,27 +10,21 @@ void RigidbodyComponent::awake()
 {
 	if (transform == NULL)
 		transform =
-		static_pointer_cast<TransformComponent>
-		(gameObject->findComponentWithSpecificTag("TransformComponent"));
-	if (thisGameObjectColliderComponent == NULL)
-	{
-		thisGameObjectColliderComponent =
-			static_pointer_cast<ColliderComponent>(gameObject->findComponentWithSpecificTag("ColliderComponent"));
-	}
+		gameObject->getComponentOfType<TransformComponent>();
 
+	if (colliderComponent == NULL)
+		colliderComponent = static_pointer_cast<ColliderComponent>(gameObject->findComponentWithSpecificTag("ColliderComponent"));
 	
 }
 
 void RigidbodyComponent::start()
 {
-	gravityForce = Vector2f(gravity*mass);
-
 	
 }
 
 void RigidbodyComponent::update(float dtAsSecond)
 {
-	
+
 	
 	fixedUpdateTimer += dtAsSecond;
 	if (fixedUpdateTimer >= fixedUpdateCall)
@@ -44,25 +38,13 @@ void RigidbodyComponent::update(float dtAsSecond)
 
 void RigidbodyComponent::fixedUpdate()
 {
-	force = Vector2f(velocity*mass);
-	velocity = Vector2f(0, 0);
-	
-	if (transform != NULL)
-	{
-		if (hasGravity)
-		{
-			transform->getPosition() += gravityForce * fixedUpdateCall;
+	if (!hasGravity)
+		return;
 
-		}
-
-		if (collisionOut.isColliding && hasGravity)
-		{
-			transform->getPosition() += -gravityForce * fixedUpdateCall;
-			
-		}
-
-		transform->getPosition() += force *fixedUpdateCall;
-	}
+	force += gravity * mass;			
+	velocity += force / mass * fixedUpdateCall;
+	transform->getPosition() += velocity*fixedUpdateCall;
+	force = Vector2f(0, 0);
 
 }
 
