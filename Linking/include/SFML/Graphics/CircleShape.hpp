@@ -38,7 +38,7 @@ namespace sf
 /// \brief Specialized shape representing a circle
 ///
 ////////////////////////////////////////////////////////////
-class SFML_GRAPHICS_API RectangularShape : public Shape
+class SFML_GRAPHICS_API CircleShape : public Shape
 {
 public:
 
@@ -49,7 +49,7 @@ public:
     /// \param pointCount Number of points composing the circle
     ///
     ////////////////////////////////////////////////////////////
-    explicit RectangularShape(float radius = 0, std::size_t pointCount = 30);
+    explicit CircleShape(float radius = 0, std::size_t pointCount = 30);
 
     ////////////////////////////////////////////////////////////
     /// \brief Set the radius of the circle

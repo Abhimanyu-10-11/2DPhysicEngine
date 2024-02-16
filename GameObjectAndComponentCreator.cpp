@@ -4,7 +4,7 @@
 #include"RigidbodyComponent.h"
 #include"PlayerInputController.h"
 #include"RectColliderComponent.h"
-
+#include"CircleColliderComponent.h"
 GameObjectAndComponentCreator::GameObjectAndComponentCreator()
 {
 
@@ -12,10 +12,11 @@ GameObjectAndComponentCreator::GameObjectAndComponentCreator()
 	
 	gameObjectName = "player";
 	spritefile = "player.png";
-	componentList.push_back("RectColliderComponent");
+	//componentList.push_back("RectColliderComponent");
 	componentList.push_back("SimpleGraphicComponent");
 	componentList.push_back("RigidbodyComponent");
 	componentList.push_back("PlayerInputController");
+	componentList.push_back("CircleColliderComponent");
 	createGameObject();
 
 	//second object;
@@ -25,7 +26,7 @@ GameObjectAndComponentCreator::GameObjectAndComponentCreator()
 	spritefile = "bloaterZombie.png";
 	componentList.push_back("RectColliderComponent");
 	componentList.push_back("SimpleGraphicComponent");
-	//componentList.push_back("RigidbodyComponent");
+	componentList.push_back("RigidbodyComponent");
 	createGameObject();
 
 }
@@ -79,6 +80,12 @@ createComponentsforGameObject(shared_ptr<GameObject> gameObject)
 			gameObject->addComponent(RCC);
 			allColliderComponent.push_back(RCC);
 
+		}
+		if (component == "CircleColliderComponent")
+		{
+			shared_ptr<CircleColliderComponent> CCC = make_shared<CircleColliderComponent>(gameObject);
+			gameObject->addComponent(CCC);
+			allColliderComponent.push_back(CCC);
 		}
 
 		if (component == "PlayerInputController")

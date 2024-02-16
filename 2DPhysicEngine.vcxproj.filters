@@ -99,6 +99,9 @@
     <ClCompile Include="RigidbodyComponent.cpp">
       <Filter>Source Files\Components\EngineComponents\Physic&amp;ColliderComponents</Filter>
     </ClCompile>
+    <ClCompile Include="CircleColliderComponent.cpp">
+      <Filter>Source Files\Components\EngineComponents\Physic&amp;ColliderComponents</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PhysicEngine.h">
@@ -139,6 +142,9 @@
     </ClInclude>
     <ClInclude Include="MathMy.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleColliderComponent.h">
+      <Filter>Header Files\Components\EngineComponents\Physic&amp;ColliderComponents</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

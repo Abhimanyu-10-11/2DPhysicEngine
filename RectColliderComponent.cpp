@@ -37,7 +37,9 @@ void RectColliderComponent::SettingColliderVisual()
 	rect.setSize(Vector2f(x_TextureSize, y_TextrueSize));
 	rect.setOrigin(x_TextureSize /2, y_TextrueSize /2);
 	rect.setScale(transform->getScale());
-	rect.setFillColor(Color::Green);
+	rect.setFillColor(Color(0,0,1,0));
+	rect.setOutlineThickness(5.0f);
+	rect.setOutlineColor(Color::Green);
 	rect.setPosition(transform->getPosition());
 }
 
@@ -46,14 +48,13 @@ void RectColliderComponent::SettingColliderVisual()
 void RectColliderComponent::update(float dtAsSecond)
 {
 
-	if (!makeColliderVisualVisable)
+	if (!isColliderActive)
 		return;
 
-	if (transform != NULL)
-	{
-		rect.setPosition(transform->getPosition());
-		rect.setRotation(transform->getRotation());
-	}
+	
+	rect.setPosition(transform->getPosition());
+	rect.setRotation(transform->getRotation());
+	
 }
 
 void RectColliderComponent::draw(RenderWindow& window)
@@ -69,6 +70,11 @@ FloatRect RectColliderComponent::getColliderBound()
 {
 	thisGameObjectBound = rect.getGlobalBounds();
 	return thisGameObjectBound;
+}
+
+void RectColliderComponent::setIsColliderActive(bool active)
+{
+	this->isColliderActive = active;
 }
 
 bool RectColliderComponent::getIsColliderActive()
