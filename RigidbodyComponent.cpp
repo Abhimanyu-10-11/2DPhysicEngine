@@ -38,10 +38,10 @@ void RigidbodyComponent::update(float dtAsSecond)
 
 void RigidbodyComponent::fixedUpdate()
 {
-	if (!hasGravity)
-		return;
-
-	force += gravity * mass;			
+	if (hasGravity)
+	{
+		force += gravity * mass;			
+	}
 	velocity += force / mass * fixedUpdateCall;
 	transform->getPosition() += velocity*fixedUpdateCall;
 	force = Vector2f(0, 0);

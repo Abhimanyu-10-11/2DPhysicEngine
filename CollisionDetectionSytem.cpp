@@ -21,10 +21,10 @@ void RigidbodyComponent::collisionDetectionSystem()
 		PhysicEngine::gOAndC->getAllColliderComponents())
 	{
 		if (otherColliderComponent == colliderComponent)
-			return;
+			continue;
 
 		if (!otherColliderComponent->getIsColliderActive())
-			return;
+			continue;
 
 		if (colliderComponent->getCollisionType() == CollisionType::Circle && otherColliderComponent->getCollisionType() == CollisionType::Circle)
 		{

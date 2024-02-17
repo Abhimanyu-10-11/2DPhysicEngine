@@ -24,7 +24,7 @@ private:
 	std::shared_ptr<TransformComponent> transform;
 	std::shared_ptr<ColliderComponent> colliderComponent;
 	string specific_Tag = "RigidbodyComponent";
-	bool hasGravity = false;
+	bool hasGravity = true;
 	void collisionDetectionSystem();
 	void CircleToCircleCollision(shared_ptr<ColliderComponent> otherColliderComponent);
 	FloatRect thisGameObjectColliderBound;

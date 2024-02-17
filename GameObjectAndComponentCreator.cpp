@@ -8,8 +8,6 @@
 GameObjectAndComponentCreator::GameObjectAndComponentCreator()
 {
 
-
-	
 	gameObjectName = "player";
 	spritefile = "player.png";
 	componentList.push_back("SimpleGraphicComponent");
@@ -24,7 +22,7 @@ GameObjectAndComponentCreator::GameObjectAndComponentCreator()
 	spritefile = "bloaterZombie.png";
 	componentList.push_back("CircleColliderComponent");
 	componentList.push_back("SimpleGraphicComponent");
-	componentList.push_back("RigidbodyComponent");
+	//componentList.push_back("RigidbodyComponent");
 	createGameObject();
 	createGameObject();
 
